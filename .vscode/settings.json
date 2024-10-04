@@ -9,7 +9,7 @@
       "angular.json": true,
       ".gitignore": true,
       ".editorconfig": true,
-      "src/styles.css": true,
+      "src/styles.css": false,
       "src/main.ts": true,
       "src/index.html": false,
       "src/favicon.ico": true,
