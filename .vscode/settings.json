@@ -1,7 +1,7 @@
 {
     "files.exclude": {
       "tsconfig.spec.json": true,
-      "tsconfig.json": true,
+      "tsconfig.json": false,
       "tsconfig.app.json": true,
       "README.md": true,
       "package.json": true,
