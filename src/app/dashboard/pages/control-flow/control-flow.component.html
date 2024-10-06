@@ -1,1 +1,76 @@
-<p>control-flow works!</p>
+
+
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+  <div class="bg-white rounded shadow p-10">
+
+    <h2 class="text-2xl font-bold mb-5"> if: {{ showContent() }} </h2>
+
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      (click)="toogleContent()">
+      click me!
+    </button>
+
+    @if (showContent()) {
+      <p class="mt-5">This is the content that is shown when the button is clicked</p>
+    }
+    @else {
+      <p class="mt-5">**************</p>
+    }
+
+  </div>
+
+
+  <!-- switch -->
+  <div class="bg-white rounded shadow p-10">
+
+    <h2 class="text-3xl"> {{ grade() }} </h2>
+
+    @switch (grade()) {
+      @case ('A') {
+        <p>Excellent</p>
+      }
+      @case ('B') {
+        <p>Good</p>
+      }
+      @case ('F') {
+        <p>Failed</p>
+      }
+      @default {
+        <p>Invalid grade</p>
+      }
+    }
+
+  </div>
+
+
+  <!-- for -->
+  <div class="bg-white rounded shadow p-10">
+    <ul>
+      @for (framework of frameworks(); track framework;
+        let i = $index, first = $first, last = $last, even = $even, odd = $odd, count = $count) {
+        <li [class]="{
+          'bg-gray-200': even && !first && !last,
+          'bg-purple-300': odd && !first && !last,
+          'bg-blue-300': first || last,
+        }">
+          {{ i + 1 }}/{{count}}  - {{ framework }}
+        </li>
+      }
+    </ul>
+  </div>
+
+  <div class="bg-white rounded shadow p-10">
+    <ul>
+      @for (framework of frameworks2(); track $index) {
+        <li>{{ $index + 1 }} - {{ framework }}</li>
+      } @empty {
+        <li>No frameworks found</li>
+      }
+    </ul>
+  </div>
+
+
+</section>
+
