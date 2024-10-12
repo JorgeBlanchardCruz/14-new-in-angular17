@@ -29,7 +29,7 @@ export class UsersService {
   constructor() {
 
     this.http.get<UsersResponse>('https://reqres.in/api/users')
-      .pipe( delay(1500) )
+      .pipe( )
       .subscribe( res => {
 
         this.#state.set({
@@ -44,7 +44,6 @@ export class UsersService {
     public getUserById(id: string): Observable<User> {
       return this.http.get<UserResponse>(`https://reqres.in/api/users/${id}`)
       .pipe(
-        delay(1500),
         map( res => res.data )
       );
     }
