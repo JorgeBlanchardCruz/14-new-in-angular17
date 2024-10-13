@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, input, output } from '@angular/core';
 import { Product } from '@interfaces/product.interface';
 
 @Component({
@@ -20,5 +20,9 @@ export class ProductCardComponent {
   public incrementQuantity() {
     this.onIncrementQuantity.emit(this.product().quantity + 1);
   }
+
+  //Ejemplo de efecto.
+  //Como product es una señal, se ejecutará cada vez que se actualice el valor de la señal
+  public loginEffect = effect(() => { console.log( this.product().name ); });
 
 }
