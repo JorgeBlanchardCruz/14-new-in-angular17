@@ -65,7 +65,15 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/dashboard',
+    //redirectTo: '/dashboard',
+    redirectTo: (route) => {
+      // se puede usar de esta forma para redirigir a una ruta segun la logica que se necesite
+      //const authService = inject<AuthService>(AuthService);
+      //if (authService.isAuthenticated()) {
+
+      console.log(route);
+      return '/dashboard';
+    },
     pathMatch: 'full'
   },
 
